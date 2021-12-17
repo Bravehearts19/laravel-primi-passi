@@ -14,5 +14,44 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $data=[
+        'name' => 'Simone',
+        'surname' => 'Granata',
+        'links_list' => [
+            'Link 1' => [
+                'text' => 'About Us',
+                'link' => 'aboutUs'
+            ],
+            'Link 2' => [
+                'text' => 'Contacts',
+                'link' => 'contacts'
+            ],
+            'Link 3' => [
+                'text' => 'Socials',
+                'link' => 'socials'
+            ],
+            'Link 4' => [
+                'text' => 'Other Section',
+                'link' => 'otherSection'
+            ],
+        ]
+    ];
+
+    return view('home', $data);
+}) -> name("home");
+
+Route::get("/about-us", function () {
+    return view("about_us");
+}) -> name("aboutUs");
+
+Route::get("/contacts", function () {
+    return view("contacts");
+}) -> name("contacts");
+
+Route::get("/socials", function () {
+    return view("socials");
+}) -> name("socials");
+
+Route::get("/other-section", function () {
+    return view("other_section");
+}) -> name("otherSection");
